@@ -1,13 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 14:23:41 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/11/21 14:23:43 by lvasseur         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "fillit.h"
 
+int		main(int ac, char **av)
+{
+	int		fd;
 
+	if (ac != 2)
+	{
+		write(1, "fillit: missing Tetriminos file.\n", 33);
+		return (0);
+	}
+	fd = open(av[1], O_RDONLY);
+	if (valid_tetriminos(fd) == 1)
+	{
+		write(1, "ok\n", 3);
+	}
+	else
+		write(1, "error", 5);
+	return (0);
+}
