@@ -1,3 +1,5 @@
+#include "fillit.h"
+
 char	*ft_isole_first_piece(char *str)
 {
 	char	*tmp;

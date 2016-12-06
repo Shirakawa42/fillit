@@ -1,3 +1,5 @@
+#include "fillit.h"
+
 int		ft_is_that_ok(char **tab)
 {
 	int		nbtouch;
@@ -27,9 +29,83 @@ int		ft_is_that_ok(char **tab)
 	return (1);
 }
 
+int		max_x(char **tab)
+{
+	int		x;
+	int		y;
+	int		tmp;
+	int		res;
+
+	y = 0;
+	tmp = 0;
+	res = 0;
+	while (y < 4)
+	{
+		x = 0;
+		while (x < 4)
+		{
+			if (tab[x][y] == '#')
+				tmp++;
+			x++;
+		}
+		if (tmp > res)
+			res = tmp;
+		tmp = 0;
+		y++;
+	}
+	return (res);
+}
+
+int		max_y(char **tab)
+{
+	int		x;
+	int		y;
+	int		tmp;
+	int		res;
+
+	x = 0;
+	tmp = 0;
+	res = 0;
+	while (x < 4)
+	{
+		y = 0;
+		while (y < 4)
+		{
+			if (tab[x][y] == '#')
+				tmp++;
+			y++;
+		}
+		if (tmp > res)
+			res = tmp;
+		tmp = 0;
+		x++;
+	}
+	return (res);
+}
+
 char	**ft_morphing_to_piece(char **tab)
 {
-	return (tab);
+	char	res[max_x(tab)][max_y(tab)];
+	int		x;
+	int		y;
+	int		x2;
+	int		y2;
+
+	x2 = 0;
+	x = 0;
+	while (ft_is_k(tab[x], '#') == 0)
+		x++;
+	while (ft_is_k_fory(tab, '#', y) == 0)
+		y++;
+	while (res[x2])
+	{
+		y2 = 0;
+		while (res[x2][y2])
+			res[x2][y2++] = tab[x][y++]
+		x++;
+		x2++;
+	}
+	return (res);
 }
 
 char	**ft_verif_then_morph(char *str)
