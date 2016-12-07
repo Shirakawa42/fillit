@@ -6,13 +6,15 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 13:20:25 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/07 17:12:41 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int ac, char **av)
+void	ft_tabstr(char **tab);
+
+int		lv_main(int ac, char **av)
 {
 	int		fd;
 	char	*fst;
@@ -37,10 +39,9 @@ int		main(int ac, char **av)
 		return (0);
 	while (i)
 	{
-		if ((fst = ft_isole_first_piece(buf)) == 0)
+		if ((fst = ft_isole_first_piece(cpbuf)) == 0)
 			return (0);
-		if ((cpbuf = ft_delete_first(buf)) == 0)
-			return (0);
+		cpbuf = ft_delete_first(cpbuf);
 		if ((truc->tab = ft_verif_then_morph(fst)) == NULL)
 			return (0);
 		if (i == 1)
@@ -48,8 +49,10 @@ int		main(int ac, char **av)
 		else
 			if ((truc->next = (t_coord*)malloc(sizeof(t_coord))) == 0)
 				return (0);
+		free(fst);
 		truc = truc->next;
 		i--;
+
 	}
 	return (1);
 }

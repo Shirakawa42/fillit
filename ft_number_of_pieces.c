@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:31 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 13:14:32 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/07 17:13:34 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			ft_number_of_pieces(char *str)
 		}
 		i++;
 	}
-	if (nbn % 4 != 0)
+	if ((nbn + 1) % 4 != 0)
 		return (-1);
-	return (nbn / 4);
+	return ((nbn + 1) / 4);
 }

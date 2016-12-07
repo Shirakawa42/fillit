@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:21 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 13:24:08 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/07 17:14:25 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,22 @@ int		ft_is_that_ok(char **tab)
 		while (++x < 4)
 			if (tab[x][y] == '#')
 			{
-				if (tab[x][y + 1] == '#')
+				if (y < 3 && tab[x][y + 1] == '#')
 					nbtouch++;
-				if (tab[x][y - 1] == '#')
+				if (y > 0 && tab[x][y - 1] == '#')
 					nbtouch++;
-				if (tab[x + 1][y] == '#')
+				if (x < 3 && tab[x + 1][y] == '#')
 					nbtouch++;
-				if (tab[x - 1][y] == '#')
+				if (x > 0 && tab[x - 1][y] == '#')
 					nbtouch++;
 			}
 	}
 	if (nbtouch != 6 && nbtouch != 8)
 		return (0);
+	if (nbtouch == 6 && max_x(tab) == 2)
+		return (2);
+	if (nbtouch == 6 && max_y(tab) == 2)
+		return (3);
 	return (1);
 }
 
@@ -95,30 +99,39 @@ int		max_y(char **tab)
 	return (res);
 }
 
-char	**ft_morphing_to_piece(char **tab)
+char	**ft_morphing_to_piece(char **tab, int l)
 {
 	char	**res;
 	int		x;
 	int		y;
 	int		x2;
 	int		y2;
+	int		h[2];
 
-	res = ft_malltab(max_x(tab), max_y(tab));
 	x2 = 0;
 	x = 0;
 	y = 0;
+	h[0] = max_x(tab);
+	h[1] = max_y(tab);
 	while (ft_is_k(tab[x], '#') == 0)
 		x++;
 	while (ft_is_k_fory(tab, '#', y) == 0)
 		y++;
-	while (res[x2])
+	if (l == 2)
+		h[0]++;
+	if (l == 3)
+		h[1]++;
+	res = ft_malltab(h[0], h[1]);
+	while (x2 < h[0])
 	{
 		y2 = 0;
-		while (res[x2][y2])
+		while (y2 < h[1])
 			res[x2][y2++] = tab[x][y++];
+		y = y - max_y(tab);
 		x++;
 		x2++;
 	}
+	ft_tabfree(tab);
 	return (res);
 }
 
@@ -129,18 +142,20 @@ char	**ft_verif_then_morph(char *str)
 	int		y;
 	int		i;
 
-	tab = ft_malltab(4, 4);
-	y = 0;
+	if ((tab = ft_malltab(4, 4)) == NULL)
+		return (NULL);
+	x = 0;
 	i = 0;
-	while (y < 4)
+	while (x < 4)
 	{
-		x = 0;
-		while (x < 4)
-			tab[x++][y] = str[i++];
-		y++;
+		y = 0;
+		while (y < 4 && str[i])
+			tab[x][y++] = str[i++];
+		x++;
 		i++;
 	}
 	if (ft_is_that_ok(tab) == 0)
 		return (NULL);
-	return (ft_morphing_to_piece(tab));
+	tab = ft_morphing_to_piece(tab, ft_is_that_ok(tab));
+	return (tab);
 }

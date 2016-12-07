@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_n_or_o.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/07 13:14:26 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 13:48:37 by lvasseur         ###   ########.fr       */
+/*   Created: 2016/12/07 13:32:18 by lvasseur          #+#    #+#             */
+/*   Updated: 2016/12/07 13:34:26 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_n_or_o(char *str)
+int		main(int ac, char **av)
 {
-	int		i;
-	int		nbn;
-
-	i = 0;
-	nbn = 0;
-	while (str[i])
+	if (lv_main(ac, av) == 0)
 	{
-		if (str[i] != '\n' && nbn == 4)
-			return (0);
-		else if (str[i] == '\n')
-			nbn++;
-		else
-			nbn = 0;
-		i++;
-	}
-	if (str[i - 1] == '\n')
+		ft_putstr("Erreur !\n");
 		return (0);
-	return (1);
+	}
 }

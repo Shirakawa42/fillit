@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:13:55 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 13:23:25 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/07 17:14:59 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ char	*ft_delete_first(char *str)
 {
 	char	*tmp;
 
-	if (ft_strlen(str) < 21)
+	if (ft_strlen(str) < 22)
 		return (NULL);
-	tmp = ft_strdup(&str[20]);
+	tmp = ft_strdup(&str[21]);
 	free(str);
-	return (tmp);
+	str = ft_strdup(tmp);
+	free(tmp);
+	return (str);
 }
