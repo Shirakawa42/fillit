@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_there_invalid.c                                 :+:      :+:    :+:   */
+/*   ft_malltab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/07 13:14:44 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 13:14:45 by lvasseur         ###   ########.fr       */
+/*   Created: 2016/12/07 13:14:16 by lvasseur          #+#    #+#             */
+/*   Updated: 2016/12/07 13:14:17 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		is_there_invalid(char *str)
+char	**ft_malltab(int x, int y)
 {
+	char	**tab;
 	int		i;
-	int		nbp;
-	int		nbd;
 
 	i = 0;
-	nbp = 0;
-	nbd = 0;
-	while (str[i])
+	if ((tab = (char**)malloc(sizeof(char*) * (x + 1))) == 0)
+		return (NULL);
+	while (i < x)
 	{
-		if (str[i] == '#')
-			nbd++;
-		else if (str[i] == '.')
-			nbp++;
-		else if (str[i] != '\n')
-			return (0);
+		if ((tab[i] = (char*)malloc(sizeof(char) * y + 1)) == 0)
+			return (NULL);
+		tab[i][y] = '\0';
 		i++;
 	}
-	if (nbp / 3 != nbd)
-		return (0);
-	return (1);
+	tab[i] = 0;
+	return (tab);
 }

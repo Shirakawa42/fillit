@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_there_invalid.c                                 :+:      :+:    :+:   */
+/*   ft_isvalid_all.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/07 13:14:44 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 13:14:45 by lvasseur         ###   ########.fr       */
+/*   Created: 2016/12/07 13:14:11 by lvasseur          #+#    #+#             */
+/*   Updated: 2016/12/07 13:14:13 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		is_there_invalid(char *str)
+int		ft_isvalid_all(char *str)
 {
-	int		i;
-	int		nbp;
-	int		nbd;
-
-	i = 0;
-	nbp = 0;
-	nbd = 0;
-	while (str[i])
-	{
-		if (str[i] == '#')
-			nbd++;
-		else if (str[i] == '.')
-			nbp++;
-		else if (str[i] != '\n')
-			return (0);
-		i++;
-	}
-	if (nbp / 3 != nbd)
+	if (ft_number_of_char(str) == 0)
+		return (0);
+	if (ft_n_or_o(str) == 0)
 		return (0);
 	return (1);
 }

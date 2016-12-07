@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_morph_to_piece.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/07 13:14:21 by lvasseur          #+#    #+#             */
+/*   Updated: 2016/12/07 13:24:08 by lvasseur         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 int		ft_is_that_ok(char **tab)
@@ -85,14 +97,16 @@ int		max_y(char **tab)
 
 char	**ft_morphing_to_piece(char **tab)
 {
-	char	res[max_x(tab)][max_y(tab)];
+	char	**res;
 	int		x;
 	int		y;
 	int		x2;
 	int		y2;
 
+	res = ft_malltab(max_x(tab), max_y(tab));
 	x2 = 0;
 	x = 0;
+	y = 0;
 	while (ft_is_k(tab[x], '#') == 0)
 		x++;
 	while (ft_is_k_fory(tab, '#', y) == 0)
@@ -101,7 +115,7 @@ char	**ft_morphing_to_piece(char **tab)
 	{
 		y2 = 0;
 		while (res[x2][y2])
-			res[x2][y2++] = tab[x][y++]
+			res[x2][y2++] = tab[x][y++];
 		x++;
 		x2++;
 	}
@@ -110,11 +124,12 @@ char	**ft_morphing_to_piece(char **tab)
 
 char	**ft_verif_then_morph(char *str)
 {
-	char	tab[4][4];
+	char	**tab;
 	int		x;
 	int		y;
 	int		i;
 
+	tab = ft_malltab(4, 4);
 	y = 0;
 	i = 0;
 	while (y < 4)
