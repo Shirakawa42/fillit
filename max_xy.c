@@ -1,41 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_number_of_pieces.c                              :+:      :+:    :+:   */
+/*   max_xy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/07 13:14:31 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/08 11:45:07 by lvasseur         ###   ########.fr       */
+/*   Created: 2016/12/08 12:56:30 by lvasseur          #+#    #+#             */
+/*   Updated: 2016/12/08 12:57:28 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			ft_number_of_pieces(char *str)
+int		max_x(char **tab)
 {
-	int		i;
-	int		nbn;
+	int		x;
+	int		y;
 	int		tmp;
+	int		res;
 
-	i = 0;
-	nbn = 0;
+	y = 0;
 	tmp = 0;
-	while (str[i])
+	res = 0;
+	while (y < 4)
 	{
-		if (str[i] == '\n')
+		x = 0;
+		while (x < 4)
 		{
-			nbn++;
-			tmp++;
+			if (tab[x][y] == '#')
+				tmp++;
+			x++;
 		}
-		if (tmp == 5)
-		{
-			tmp = 0;
-			nbn--;
-		}
-		i++;
+		if (tmp > res)
+			res = tmp;
+		tmp = 0;
+		y++;
 	}
-	if ((nbn + 1) % 4 != 0)
-		return (-1);
-	return ((nbn + 1) / 4);
+	return (res);
+}
+
+int		max_y(char **tab)
+{
+	int		x;
+	int		y;
+	int		tmp;
+	int		res;
+
+	x = 0;
+	tmp = 0;
+	res = 0;
+	while (x < 4)
+	{
+		y = 0;
+		while (y < 4)
+		{
+			if (tab[x][y] == '#')
+				tmp++;
+			y++;
+		}
+		if (tmp > res)
+			res = tmp;
+		tmp = 0;
+		x++;
+	}
+	return (res);
 }
