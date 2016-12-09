@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:13:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/09 12:02:22 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/09 15:51:07 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct	s_coord
 {
 	char			c;
 	char			**tab;
+	int				max_x;
+	int				max_y;
 	struct s_coord	*next;
 }				t_coord;
 
@@ -50,5 +52,6 @@ t_coord			*lv_premain(char **av);
 void			ft_tabfree(char **tab);
 int				ft_number_of_x(char **tab);
 int				ft_number_of_y(char **tab);
+int				max_x_piece(char **tab);
 
 #endif

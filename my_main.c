@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/08 13:23:05 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/09 15:55:40 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ t_coord		*lv_premain(char **av)
 	return (lv_main(cpbuf, i[1], c, truc));
 }
 
+int			max_y_piece(char **tab)
+{
+	int		y;
+
+	y = 0;
+	while (tab[y])
+		y++;
+	return (y);
+}
+
 t_coord		*lv_main(char *cpbuf, int i, char c, t_coord *truc)
 {
 	char	*fst;
@@ -48,6 +58,8 @@ t_coord		*lv_main(char *cpbuf, int i, char c, t_coord *truc)
 		cpbuf = ft_delete_first(cpbuf);
 		if ((truc->tab = ft_verif_then_morph(fst)) == NULL)
 			return (NULL);
+		truc->max_x = ft_strlen(truc->tab[0]);
+		truc->max_y = max_y_piece(truc->tab);
 		if (i == 1)
 			truc->next = NULL;
 		else if ((truc->next = (t_coord*)malloc(sizeof(t_coord))) == 0)
