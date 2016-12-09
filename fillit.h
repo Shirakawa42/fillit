@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:13:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/08 13:35:42 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/09 12:02:22 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ t_coord			*lv_main(char *cpbuf, int i, char c, t_coord *truc);
 t_coord			*lv_premain(char **av);
 void			ft_tabfree(char **tab);
 int				ft_number_of_x(char **tab);
+int				ft_number_of_y(char **tab);
 
 #endif

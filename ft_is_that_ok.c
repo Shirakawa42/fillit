@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 13:30:22 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/08 13:35:28 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/09 12:03:19 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,22 @@ int		ft_number_of_x(char **tab)
 		if (ft_is_k(tab[i], '#') == 1)
 			nb++;
 		i++;
+	}
+	return (nb);
+}
+
+int		ft_number_of_y(char **tab)
+{
+	int		y;
+	int		nb;
+
+	y = 0;
+	nb = 0;
+	while (y < 4)
+	{
+		if (ft_is_k_fory(tab, '#', y) == 1)
+			nb++;
+		y++;
 	}
 	return (nb);
 }
@@ -52,7 +68,7 @@ int		ft_is_that_ok(char **tab, int x[3])
 		return (0);
 	if (x[2] == 6 && max_x(tab) == 2 && ft_number_of_x(tab) == 3)
 		return (2);
-	if (x[2] == 6 && max_y(tab) == 2)
+	if (x[2] == 6 && max_y(tab) == 2 && ft_number_of_y(tab) == 3)
 		return (3);
 	return (1);
 }

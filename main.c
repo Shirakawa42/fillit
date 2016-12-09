@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:32:18 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/08 14:22:35 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/09 12:06:08 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ int		main(int ac, char **av)
 		ft_putstr("error\n");
 		return (0);
 	}
-	ft_wow(truc);
 	return (0);
 }
