@@ -26,6 +26,7 @@ typedef struct	s_coord
 	char			**tab;
 	int				max_x;
 	int				max_y;
+	int				coord[4][2];
 	struct s_coord	*next;
 }				t_coord;
 
