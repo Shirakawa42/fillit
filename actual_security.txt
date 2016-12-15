@@ -1,6 +1,0 @@
-- Pièces invalides: sécurisé
-- Fichier trop grand: sécurisé
-- Fichier contenant des caractères non valides: sécurisé
-- Fichier contenant une mauvaise proportionnalité de . et de #: sécurisé
-- Fichier contenant des lignes de plus de 4 caractères affichables: sécurisé
-- Fichier ne contenant pas de \n ou \0 toutes les 4 lignes: sécurisé
