@@ -6,7 +6,7 @@
 /*   By: lvasseur <lvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/12 15:56:53 by zadrien          ###   ########.fr       */
+/*   Updated: 2016/12/15 15:20:56 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ t_coord		*lv_premain(char **av, int nbp)
 		return (NULL);
 	if ((cpbuf = ft_strdup(buf)) == NULL)
 		return (NULL);
+	if (cpbuf[ft_strlen(cpbuf) - 1] != '\n')
+		return (NULL);
+	cpbuf[ft_strlen(cpbuf) - 1] = '\0';
 	if ((nbp = ft_number_of_pieces(cpbuf)) == -1)
 		return (NULL);
 	c = 'A';

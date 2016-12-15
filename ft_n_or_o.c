@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:26 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 13:48:37 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/15 15:55:09 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int		ft_n_or_o(char *str)
 	nbn = 0;
 	while (str[i])
 	{
+		if (str[i] == '\n')
+			nbn++;
+		if (str[i] == '\n' && nbn == 5)
+			nbn = 0;
 		if (str[i] != '\n' && nbn == 4)
 			return (0);
-		else if (str[i] == '\n')
-			nbn++;
-		else
-			nbn = 0;
 		i++;
 	}
 	if (str[i - 1] == '\n')
