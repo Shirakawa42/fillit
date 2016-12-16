@@ -6,7 +6,7 @@
 /*   By: lvasseur <lvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:13:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/15 14:25:48 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/16 12:21:17 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct	s_cursor
 }				t_cursor;
 
 int				ft_number_of_pieces(char *str);
-char			**ft_tabdup(char **tab);
 char			*ft_delete_first(char *str);
 char			*ft_isole_pieces(char *str);
 char			**ft_morphing_to_piece(char **tab, int l, int x[6]);

@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:16 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/07 17:14:36 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/16 11:57:55 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**ft_malltab(int x, int y)
 		return (NULL);
 	while (i < x)
 	{
-		if ((tab[i] = (char*)malloc(sizeof(char) * y + 1)) == 0)
+		if ((tab[i] = (char*)malloc(sizeof(char) * (y + 1))) == 0)
 			return (NULL);
 		tab[i][y] = '\0';
 		i++;
