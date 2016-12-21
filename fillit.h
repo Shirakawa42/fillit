@@ -6,7 +6,7 @@
 /*   By: lvasseur <lvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:13:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/16 12:21:17 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/21 12:00:18 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ int				ft_backtracking(char **tab, t_coord *p);
 void			ft_solverfillit(t_coord *piece, int nbp);
 t_coord			*ft_coord(t_coord *truc);
 int				ft_sizetab(int nbp);
+void			ft_bzero(void *s, size_t n);
 
 #endif

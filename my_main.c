@@ -6,7 +6,7 @@
 /*   By: lvasseur <lvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/15 15:20:56 by lvasseur         ###   ########.fr       */
+/*   Updated: 2016/12/21 12:00:28 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_coord		*lv_premain(char **av, int nbp)
 	char	c;
 	t_coord	*truc;
 
+	ft_bzero(buf, 560);
 	if ((truc = (t_coord*)malloc(sizeof(t_coord))) == NULL)
 		return (NULL);
 	i = open(av[1], O_RDONLY);
