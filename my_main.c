@@ -6,7 +6,7 @@
 /*   By: lvasseur <lvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 13:14:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2016/12/21 12:00:28 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/02 15:01:53 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ t_coord		*lv_premain(char **av, int nbp)
 	if (read(i, buf, 559) == -1)
 		return (NULL);
 	if ((cpbuf = ft_strdup(buf)) == NULL)
+		return (NULL);
+	if (is_there_invalid(cpbuf) == 0)
 		return (NULL);
 	if (cpbuf[ft_strlen(cpbuf) - 1] != '\n')
 		return (NULL);
