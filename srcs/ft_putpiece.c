@@ -69,11 +69,9 @@ static int		ft_dots(char **pie)
 int				ft_putpiece(char **tab, t_cursor *t, t_coord *p)
 {
 	int		i;
-	int		j;
 	int		dotsx;
 
 	i = -1;
-	j = -1;
 	dotsx = ft_dots(p->tab);
 	if (t->x == 0 && dotsx > 0)
 		return (0);

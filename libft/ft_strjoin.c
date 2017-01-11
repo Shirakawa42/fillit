@@ -17,10 +17,8 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
-	int		j;
 	char	*str;
 
-	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
 	else
